@@ -51,9 +51,29 @@ export default async function VerifikasiPage({ params }: PageProps) {
     <div className="min-h-screen bg-gradient-to-b from-teal-50 to-gray-100 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Card */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden relative">
+          {/* Watermark Background Logo */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden select-none"
+          >
+            <svg
+              className="w-[360px] h-[360px] md:w-[480px] md:h-[480px] text-teal-800 opacity-[0.08]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.2}
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+              />
+            </svg>
+          </div>
+
           {/* Header */}
-          <div className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 px-8 py-6 text-center">
+          <div className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 px-8 py-6 text-center relative z-10">
             {/* Logo/Lambang placeholder */}
             <div className="flex justify-center mb-4">
               <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur border-2 border-white/40 flex items-center justify-center">
@@ -72,20 +92,20 @@ export default async function VerifikasiPage({ params }: PageProps) {
           </div>
 
           {/* Table header */}
-          <div className="grid grid-cols-2 text-center font-bold text-white text-sm">
+          <div className="grid grid-cols-2 text-center font-bold text-white text-sm relative z-10">
             <div className="bg-teal-600 py-2.5">PENGGUGAT</div>
             <div className="bg-emerald-600 py-2.5">TERGUGAT</div>
           </div>
 
           {/* Data rows */}
-          <table className="w-full text-sm">
+          <table className="w-full text-sm relative z-10">
             <tbody>
               {rows.map((row, idx) => (
-                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white/80' : 'bg-gray-50/80'}>
                   <td colSpan={2} className="hidden"></td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-teal-50 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
+                      <div className="w-24 min-w-24 bg-teal-50/80 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
                         {row.label}
                       </div>
                       <div className="flex-1 px-4 py-3 text-gray-800 border-r border-gray-100">
@@ -95,7 +115,7 @@ export default async function VerifikasiPage({ params }: PageProps) {
                   </td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-emerald-50 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
+                      <div className="w-24 min-w-24 bg-emerald-50/80 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
                         {row.label}
                       </div>
                       <div className="flex-1 px-4 py-3 text-gray-800">
@@ -107,10 +127,10 @@ export default async function VerifikasiPage({ params }: PageProps) {
               ))}
 
               {/* Status row */}
-              <tr className="bg-white border-t-2 border-teal-100">
+              <tr className="bg-white/80 border-t-2 border-teal-100">
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-teal-50 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
+                    <div className="w-24 min-w-24 bg-teal-50/80 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
                       Status Simkah
                     </div>
                     <div className="flex-1 px-4 py-4 flex justify-center border-r border-gray-100">
@@ -120,7 +140,7 @@ export default async function VerifikasiPage({ params }: PageProps) {
                 </td>
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-emerald-50 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
+                    <div className="w-24 min-w-24 bg-emerald-50/80 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
                       Status Simkah
                     </div>
                     <div className="flex-1 px-4 py-4 flex justify-center">
@@ -133,7 +153,7 @@ export default async function VerifikasiPage({ params }: PageProps) {
           </table>
 
           {/* Footer */}
-          <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-3 text-center">
+          <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-6 py-3 text-center relative z-10">
             <p className="text-teal-100 text-xs">
               Data ini dapat diverifikasi kebenarannya. Diakses pada: {new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
