@@ -48,18 +48,19 @@ export default async function VerifikasiPage({ params }: PageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-teal-50 to-gray-100 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-teal-50 to-gray-100 py-8 px-4 relative overflow-x-hidden">
+      {/* Full Page Fixed Tiled Watermark Background */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none bg-repeat"
+        style={{
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='140' viewBox='0 0 240 140'><g transform='rotate(-28 120 70)' fill='%230f766e' font-family='system-ui, sans-serif' font-size='11' font-weight='800' letter-spacing='1.5'><g transform='translate(10, 18) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.18'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='35' y='32' opacity='0.18'>DOKUMEN RESMI</text><g transform='translate(130, 80) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.18'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='155' y='94' opacity='0.18'>VERIFIKASI SAH</text></g></svg>")`,
+        }}
+      />
+
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Card */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden relative">
-          {/* Tiled Watermark Background */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none bg-repeat"
-            style={{
-              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='140' viewBox='0 0 240 140'><g transform='rotate(-28 120 70)' fill='%230f766e' font-family='system-ui, sans-serif' font-size='11' font-weight='800' letter-spacing='1.5'><g transform='translate(10, 18) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.22'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='35' y='32' opacity='0.22'>DOKUMEN RESMI</text><g transform='translate(130, 80) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.22'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='155' y='94' opacity='0.22'>VERIFIKASI SAH</text></g></svg>")`,
-            }}
-          />
+        <div className="bg-white/85 backdrop-blur-xs rounded-2xl shadow-2xl overflow-hidden border border-teal-100/50">
 
           {/* Header */}
           <div className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 px-8 py-6 text-center relative z-10">
