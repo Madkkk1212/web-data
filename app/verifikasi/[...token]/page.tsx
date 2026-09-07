@@ -52,25 +52,14 @@ export default async function VerifikasiPage({ params }: PageProps) {
       <div className="max-w-4xl mx-auto">
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden relative">
-          {/* Watermark Background Logo */}
+          {/* Tiled Watermark Background */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden select-none"
-          >
-            <svg
-              className="w-[360px] h-[360px] md:w-[480px] md:h-[480px] text-teal-800 opacity-[0.08]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.2}
-                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-              />
-            </svg>
-          </div>
+            className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none bg-repeat opacity-80"
+            style={{
+              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='130' viewBox='0 0 220 130'><g transform='rotate(-28 110 65)' fill='%230f766e' font-family='system-ui, sans-serif' font-size='10' font-weight='700' letter-spacing='1.5'><g transform='translate(10, 20) scale(0.65)' stroke='%230f766e' stroke-width='1.8' fill='none' opacity='0.08'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='32' y='32' opacity='0.08'>DOKUMEN RESMI</text><g transform='translate(120, 80) scale(0.65)' stroke='%230f766e' stroke-width='1.8' fill='none' opacity='0.08'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='142' y='92' opacity='0.08'>VERIFIKASI SAH</text></g></svg>")`,
+            }}
+          />
 
           {/* Header */}
           <div className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 px-8 py-6 text-center relative z-10">
