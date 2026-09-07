@@ -32,9 +32,19 @@ export default function DataDetailPage() {
   const router = useRouter()
   const [data, setData] = useState<Verifikasi | null>(null)
   const [loading, setLoading] = useState(true)
+  const [baseUrl, setBaseUrl] = useState<string>('')
   const qrRef = useRef<HTMLDivElement>(null)
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const envUrl = process.env.NEXT_PUBLIC_BASE_URL
+      if (envUrl && !envUrl.includes('localhost')) {
+        setBaseUrl(envUrl)
+      } else {
+        setBaseUrl(window.location.origin)
+      }
+    }
+  }, [])
 
   const fetchData = useCallback(async () => {
     // We use GET /api/verifikasi?id=... trick but since our API uses token-based GET,
