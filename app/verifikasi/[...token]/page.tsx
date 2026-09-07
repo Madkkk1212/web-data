@@ -55,9 +55,9 @@ export default async function VerifikasiPage({ params }: PageProps) {
           {/* Tiled Watermark Background */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none bg-repeat opacity-80"
+            className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none bg-repeat"
             style={{
-              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='130' viewBox='0 0 220 130'><g transform='rotate(-28 110 65)' fill='%230f766e' font-family='system-ui, sans-serif' font-size='10' font-weight='700' letter-spacing='1.5'><g transform='translate(10, 20) scale(0.65)' stroke='%230f766e' stroke-width='1.8' fill='none' opacity='0.08'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='32' y='32' opacity='0.08'>DOKUMEN RESMI</text><g transform='translate(120, 80) scale(0.65)' stroke='%230f766e' stroke-width='1.8' fill='none' opacity='0.08'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='142' y='92' opacity='0.08'>VERIFIKASI SAH</text></g></svg>")`,
+              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='140' viewBox='0 0 240 140'><g transform='rotate(-28 120 70)' fill='%230f766e' font-family='system-ui, sans-serif' font-size='11' font-weight='800' letter-spacing='1.5'><g transform='translate(10, 18) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.22'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='35' y='32' opacity='0.22'>DOKUMEN RESMI</text><g transform='translate(130, 80) scale(0.7)' stroke='%230f766e' stroke-width='2' fill='none' opacity='0.22'><path stroke-linecap='round' stroke-linejoin='round' d='M3 6l3 1m0 0l-3 9a5 5 0 006 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/></g><text x='155' y='94' opacity='0.22'>VERIFIKASI SAH</text></g></svg>")`,
             }}
           />
 
@@ -90,24 +90,24 @@ export default async function VerifikasiPage({ params }: PageProps) {
           <table className="w-full text-sm relative z-10">
             <tbody>
               {rows.map((row, idx) => (
-                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white/80' : 'bg-gray-50/80'}>
+                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white/40' : 'bg-gray-50/40'}>
                   <td colSpan={2} className="hidden"></td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-teal-50/80 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
+                      <div className="w-24 min-w-24 bg-teal-50/50 border-r border-teal-100/60 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
                         {row.label}
                       </div>
-                      <div className="flex-1 px-4 py-3 text-gray-800 border-r border-gray-100">
+                      <div className="flex-1 px-4 py-3 text-gray-900 font-medium border-r border-gray-100/60">
                         {row.penggugat}
                       </div>
                     </div>
                   </td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-emerald-50/80 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
+                      <div className="w-24 min-w-24 bg-emerald-50/50 border-r border-emerald-100/60 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
                         {row.label}
                       </div>
-                      <div className="flex-1 px-4 py-3 text-gray-800">
+                      <div className="flex-1 px-4 py-3 text-gray-900 font-medium">
                         {row.tergugat}
                       </div>
                     </div>
@@ -116,20 +116,20 @@ export default async function VerifikasiPage({ params }: PageProps) {
               ))}
 
               {/* Status row */}
-              <tr className="bg-white/80 border-t-2 border-teal-100">
+              <tr className="bg-white/40 border-t-2 border-teal-100/60">
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-teal-50/80 border-r border-teal-100 px-3 py-3 text-xs font-semibold text-teal-700 flex items-start">
+                    <div className="w-24 min-w-24 bg-teal-50/50 border-r border-teal-100/60 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
                       Status Simkah
                     </div>
-                    <div className="flex-1 px-4 py-4 flex justify-center border-r border-gray-100">
+                    <div className="flex-1 px-4 py-4 flex justify-center border-r border-gray-100/60">
                       <StatusBadge status={data.statusPenggugat} />
                     </div>
                   </div>
                 </td>
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-emerald-50/80 border-r border-emerald-100 px-3 py-3 text-xs font-semibold text-emerald-700 flex items-start">
+                    <div className="w-24 min-w-24 bg-emerald-50/50 border-r border-emerald-100/60 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
                       Status Simkah
                     </div>
                     <div className="flex-1 px-4 py-4 flex justify-center">
