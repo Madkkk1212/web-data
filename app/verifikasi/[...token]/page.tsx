@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-  params: Promise<{ token: string }>
+  params: Promise<{ token: string | string[] }>
 }
 
 function StatusBadge({ status }: { status: string }) {
@@ -23,9 +23,16 @@ function StatusBadge({ status }: { status: string }) {
 }
 
 export default async function VerifikasiPage({ params }: PageProps) {
-  const { token } = await params
+  const resolvedParams = await params
+  const rawToken = Array.isArray(resolvedParams.token)
+    ? resolvedParams.token.join('/')
+    : resolvedParams.token
 
-  const data = await prisma.verifikasi.findUnique({ where: { token } })
+  let data = await prisma.verifikasi.findUnique({ where: { token: rawToken } })
+
+  if (!data && rawToken.includes('%')) {
+    data = await prisma.verifikasi.findUnique({ where: { token: decodeURIComponent(rawToken) } })
+  }
 
   if (!data) {
     notFound()

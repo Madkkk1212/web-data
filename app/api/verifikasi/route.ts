@@ -57,9 +57,9 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json()
 
-  // Generate token: nanoid → Buffer base64 encode
+  // Generate token: nanoid → Buffer base64url encode (URL-safe, no slashes)
   const rawId = nanoid(16)
-  const token = Buffer.from(rawId).toString('base64')
+  const token = Buffer.from(rawId).toString('base64url')
 
   const verifikasi = await prisma.verifikasi.create({
     data: {
