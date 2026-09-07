@@ -8,7 +8,7 @@ interface PageProps {
 function StatusBadge({ status }: { status: string }) {
   const isUsed = status === 'SUDAH_DIGUNAKAN'
   return (
-    <div className={`inline-flex flex-col items-center justify-center w-28 h-28 rounded-full border-4 ${isUsed ? 'border-red-400 bg-red-50' : 'border-green-500 bg-green-50'} shadow-inner mx-auto`}>
+    <div className={`inline-flex flex-col items-center justify-center w-28 h-28 rounded-full border-4 ${isUsed ? 'border-red-400 bg-red-50/80' : 'border-green-500 bg-green-50/80'} shadow-inner mx-auto`}>
       <svg className={`w-8 h-8 mb-1 ${isUsed ? 'text-red-500' : 'text-green-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         {isUsed
           ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -90,24 +90,24 @@ export default async function VerifikasiPage({ params }: PageProps) {
           <table className="w-full text-sm relative z-10">
             <tbody>
               {rows.map((row, idx) => (
-                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white/40' : 'bg-gray-50/40'}>
+                <tr key={row.label} className={idx % 2 === 0 ? 'bg-white/70' : 'bg-gray-50/70'}>
                   <td colSpan={2} className="hidden"></td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-teal-50/50 border-r border-teal-100/60 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
+                      <div className="w-24 min-w-24 bg-teal-50/70 border-r border-teal-100/70 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
                         {row.label}
                       </div>
-                      <div className="flex-1 px-4 py-3 text-gray-900 font-medium border-r border-gray-100/60">
+                      <div className="flex-1 px-4 py-3 text-gray-900 font-semibold border-r border-gray-100/70">
                         {row.penggugat}
                       </div>
                     </div>
                   </td>
                   <td className="px-0 py-0 w-1/2">
                     <div className="flex">
-                      <div className="w-24 min-w-24 bg-emerald-50/50 border-r border-emerald-100/60 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
+                      <div className="w-24 min-w-24 bg-emerald-50/70 border-r border-emerald-100/70 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
                         {row.label}
                       </div>
-                      <div className="flex-1 px-4 py-3 text-gray-900 font-medium">
+                      <div className="flex-1 px-4 py-3 text-gray-900 font-semibold">
                         {row.tergugat}
                       </div>
                     </div>
@@ -116,20 +116,20 @@ export default async function VerifikasiPage({ params }: PageProps) {
               ))}
 
               {/* Status row */}
-              <tr className="bg-white/40 border-t-2 border-teal-100/60">
+              <tr className="bg-white/70 border-t-2 border-teal-100/70">
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-teal-50/50 border-r border-teal-100/60 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
+                    <div className="w-24 min-w-24 bg-teal-50/70 border-r border-teal-100/70 px-3 py-3 text-xs font-bold text-teal-800 flex items-start">
                       Status Simkah
                     </div>
-                    <div className="flex-1 px-4 py-4 flex justify-center border-r border-gray-100/60">
+                    <div className="flex-1 px-4 py-4 flex justify-center border-r border-gray-100/70">
                       <StatusBadge status={data.statusPenggugat} />
                     </div>
                   </div>
                 </td>
                 <td className="py-6 w-1/2">
                   <div className="flex">
-                    <div className="w-24 min-w-24 bg-emerald-50/50 border-r border-emerald-100/60 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
+                    <div className="w-24 min-w-24 bg-emerald-50/70 border-r border-emerald-100/70 px-3 py-3 text-xs font-bold text-emerald-800 flex items-start">
                       Status Simkah
                     </div>
                     <div className="flex-1 px-4 py-4 flex justify-center">
